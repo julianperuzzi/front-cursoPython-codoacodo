@@ -9,7 +9,7 @@ function Navbar() {
         Argentina Hardware
             </Link>
           <div className='md:text-xl text-xs'>
-            <Link to="/" className="text-gray-200  hover:text-white hover:font-semibold px-3">
+            <Link to="/" className="text-gray-200 invisible lg:visible hover:text-white hover:font-semibold px-3">
               Inicio
             </Link>
             <Link to="/products" className="text-gray-200 hover:text-white hover:font-semibold px-3">
