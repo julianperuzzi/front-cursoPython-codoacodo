@@ -92,7 +92,7 @@ const Home = () => {
         <div className="container my-24 w-10/12 mx-auto">
         <h3 className="text-3xl font-bold mb-6">Administrador de Productos </h3>
         <p className="text-gray-600 mb-6">Ingresa al menu de Administracion de Productos: Agrega, Edita o Elimina Productos</p>
-        <Link to="/products" className="text-center bg-slate-200 px-6 py-2 text-xl text-blue-500 hover:text-blue-600 font-semibold shadow-md">
+        <Link to="/products" className="text-center bg-slate-200 px-6 py-2 md:text-xl text-sm text-blue-500 hover:text-blue-600 font-semibold shadow-md">
         Ir al Administrador de Productos
             </Link>
         </div>
