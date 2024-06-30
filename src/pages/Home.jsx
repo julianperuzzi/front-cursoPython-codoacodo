@@ -1,30 +1,48 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
 
 import imagenFondo from '../assets/imagenFondo.jpg'; 
 import imagenProducto1 from '../assets/producto1.jpg';
 import imagenProducto2 from '../assets/producto2.jpg';
 import imagenProducto3 from '../assets/producto3.jpg';
 
-const Home = () => {
-  return (
-    <div className="relative">
+import AOS from 'aos';
+import 'aos/dist/aos.css'
 
+import { Parallax } from 'react-parallax';
+
+
+const Home = () => {
+
+  useEffect(() => {
+    AOS.init({duration: 1200})
+  })
+
+
+
+  return (
+    <div className="max-w-100">
 
       {/* //Presentacion + Imagen// */}
-      <div className="h-96 bg-cover bg-center"
-           style={{ backgroundImage: `url(${imagenFondo})` }}>
-        <div className="bg-black bg-opacity-50 h-full w-full flex flex-col justify-center items-center text-center text-white hover:bg-opacity-70 transition duration-500">
-          <h1 className="text-6xl font-bold p-6 my-4 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-300">Argentina Hardware</h1>
-          <p className="mt-2 text-lg">Productos de hardware para trabajar y también divertirse.</p>
+      <Parallax className="bg-center md:h-[60vh] h-[85vh]"  bgImage={imagenFondo} strength={500}  blur={5} >
+        <div className=" flex flex-col items-center text-center text-white justify-center mt-40" data-aos="zoom-in">
+          <h1 className="text-7xl font-bold p-6 my-4 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-300 hover:scale-105 transition duration-700">Argentina Hardware</h1>
+          <p className="mt-2 text-xl px-10">Productos de hardware para trabajar y también divertirse.</p>
         </div>
-      </div>
+      </Parallax>
 
 
-      {/* //bievenida a la pagina web// */}
+
+        {/* //HOME de la web, con articulos, productos etc// */} 
+      
       
       <div className="container mx-auto my-16">
-        <div className="text-center my-16">
+
+
+        {/* //bievenida a la pagina web// */}
+
+        <div className=" text-center my-16 px-4" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
           <h2 className="text-4xl font-bold">Bienvenido a nuestra página</h2>
           <p className="mt-4 text-lg text-gray-700">
             Explora el mundo de la tecnología con Argentina Hardware. Ofrecemos una amplia gama de productos diseñados para satisfacer tus necesidades tecnológicas.
@@ -38,10 +56,10 @@ const Home = () => {
 
           {/* //posteo de productos// */}
         
-        <div className="grid grid-cols-1 gap-10 w-10/12 mx-auto">
+        <div className="grid grid-cols-1 gap-10 w-10/12 mx-auto" >
         <h2 className="text-4xl font-bold mb-3">Explora Nuestros Productos</h2>
           {/* Primer Producto */}
-          <div className="bg-white shadow-lg overflow-hidden flex md:flex-row flex-col-reverse hover:scale-105 transition duration-500">
+          <div className="bg-white shadow-lg overflow-hidden flex md:flex-row flex-col-reverse hover:scale-105 transition duration-500" data-aos="fade-right">
             <div className="p-4 md:w-1/2">
               <h3 className="text-xl font-bold mb-2">Productos para Oficina</h3>
               <p className="text-gray-600">Descubre nuestra selección de productos ideales para tu espacio de oficina. Desde componentes esenciales hasta accesorios prácticos.</p>
@@ -51,7 +69,7 @@ const Home = () => {
           </div>
 
           {/* Segundo Producto */}
-          <div className="bg-white shadow-lg overflow-hidden flex md:flex-row flex-col hover:scale-105 transition duration-500">
+          <div className="bg-white shadow-lg overflow-hidden flex md:flex-row flex-col hover:scale-105 transition duration-500" data-aos="fade-left">
             <img src={imagenProducto2} alt="Producto 2" className="w-full h-60 object-cover md:w-1/2" />
             <div className="p-4 md:w-1/2">
               <h3 className="text-xl font-bold mb-2">Productos Gamer</h3>
@@ -61,7 +79,7 @@ const Home = () => {
           </div>
 
           {/* Tercer Producto */}
-          <div className="bg-white shadow-lg overflow-hidden flex md:flex-row flex-col-reverse hover:scale-105 transition duration-500">
+          <div className="bg-white shadow-lg overflow-hidden flex md:flex-row flex-col-reverse hover:scale-105 transition duration-500" data-aos="fade-right">
             <div className="p-4 md:w-1/2">
               <h3 className="text-xl font-bold mb-2">Productos eSports</h3>
               <p className="text-gray-600">Explora nuestra colección de productos diseñados para los jugadores más competitivos. Equipos optimizados y tecnología de vanguardia para tu rendimiento.</p>

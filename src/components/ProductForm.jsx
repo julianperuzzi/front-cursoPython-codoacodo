@@ -55,7 +55,7 @@ const ProductForm = ({ isEdit }) => {
   if (error) return <p>Ocurrió un error...</p>;
 
   return (
-    <div className="container mx-auto my-10 w-8/12">
+    <div className="container mx-auto py-10 w-8/12">
       <h1 className="text-2xl font-bold mb-4">{isEdit ? 'Editar Producto' : 'Nuevo Producto'}</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
