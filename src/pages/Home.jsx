@@ -43,7 +43,7 @@ const Home = () => {
         {/* //bievenida a la pagina web// */}
 
         <div className=" text-center my-16 px-4" >
-          <h2 className="md:text-4xl text-2xl font-bold text-gray-800" data-aos="fade-in">Bienvenido a nuestra página</h2>
+          <h2 className="md:text-4xl text-3xl font-bold text-gray-800" data-aos="fade-in">Bienvenido a nuestra página</h2>
           <p className="mt-4 text-lg text-gray-700" data-aos="fade-in">
             Explora el mundo de la tecnología con Argentina Hardware. Ofrecemos una amplia gama de productos diseñados para satisfacer tus necesidades tecnológicas.
           </p>
