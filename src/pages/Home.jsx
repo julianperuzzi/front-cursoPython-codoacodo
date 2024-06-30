@@ -26,8 +26,8 @@ const Home = () => {
 
       {/* //Presentacion + Imagen// */}
       <Parallax className="bg-center bg-cover md:h-[60vh] h-[50vh]"  bgImage={imagenFondo} strength={500}  blur={5} >
-        <div className=" flex flex-col items-center text-center text-white justify-center md:mt-40" data-aos="zoom-in">
-          <h1 className="lg:text-7xl text-6xl font-bold p-6 my-4 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-300 hover:scale-105 transition duration-700">Argentina Hardware</h1>
+        <div className=" flex flex-col items-center text-center text-white justify-center md:mt-40 mt-10" data-aos="zoom-in">
+          <h1 className="lg:text-7xl text-6xl font-bold p-6 mt-8 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-300 hover:scale-105 transition duration-700">Argentina Hardware</h1>
           <p className="mt-2 text-xl px-10">Productos de hardware para trabajar y también divertirse.</p>
         </div>
       </Parallax>
