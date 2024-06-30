@@ -25,7 +25,7 @@ const Home = () => {
     <div className="max-w-100">
 
       {/* //Presentacion + Imagen// */}
-      <Parallax className="bg-center md:h-[60vh] h-[45vh]"  bgImage={imagenFondo} strength={500}  blur={5} >
+      <Parallax className="bg-center bg-cover md:h-[60vh] h-[50vh]"  bgImage={imagenFondo} strength={500}  blur={5} >
         <div className=" flex flex-col items-center text-center text-white justify-center md:mt-40" data-aos="zoom-in">
           <h1 className="lg:text-7xl text-6xl font-bold p-6 my-4 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-300 hover:scale-105 transition duration-700">Argentina Hardware</h1>
           <p className="mt-2 text-xl px-10">Productos de hardware para trabajar y también divertirse.</p>
@@ -42,13 +42,13 @@ const Home = () => {
 
         {/* //bievenida a la pagina web// */}
 
-        <div className=" text-center my-16 px-4" data-aos="fade-in" data-aos-anchor-placement="bottom-bottom">
-          <h2 className="text-4xl font-bold">Bienvenido a nuestra página</h2>
-          <p className="mt-4 text-lg text-gray-700">
+        <div className=" text-center my-16 px-4" >
+          <h2 className="text-4xl font-bold" data-aos="fade-in">Bienvenido a nuestra página</h2>
+          <p className="mt-4 text-lg text-gray-700" data-aos="fade-in">
             Explora el mundo de la tecnología con Argentina Hardware. Ofrecemos una amplia gama de productos diseñados para satisfacer tus necesidades tecnológicas.
           </p>
-          <p className="mt-4 text-gray-600 italic">"La tecnología es solo una herramienta. En términos de motivación e impacto en la humanidad, es lo que lleva a las personas a lograr cosas maravillosas."</p>
-          <p className="mt-1 text-gray-600 text-sm">- Sony Moore, Fundador Argentina Hardware</p>
+          <p className="mt-4 text-gray-600 italic" data-aos="fade-in">"La tecnología es solo una herramienta. En términos de motivación e impacto en la humanidad, es lo que lleva a las personas a lograr cosas maravillosas."</p>
+          <p className="mt-1 text-gray-600 text-sm" data-aos="fade-in">- Sony Moore, Fundador Argentina Hardware</p>
         </div>
 
 
