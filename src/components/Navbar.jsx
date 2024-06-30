@@ -15,7 +15,7 @@ function Navbar() {
             <Link to="/products" className="text-gray-200 hover:text-white hover:font-semibold px-3">
               Productos
             </Link>
-            <Link to="/products/new" className="text-gray-200 hover:font-semibold hover:text-white px-3">
+            <Link to="/products/new" className="text-gray-200 hover:font-semibold invisible lg:visible  hover:text-white px-3">
               Añadir Producto
             </Link>
           </div>
