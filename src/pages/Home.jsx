@@ -41,7 +41,7 @@ const Home = ({ darkMode }) => {
       </div>
 
       {/* Presentacion + Imagen */}
-      <Parallax className="bg-cover bg-center md:h-[50vh] h-[50vh]" bgImage={imagenFondo} strength={500}>
+      <Parallax className="bg-cover bg-center md:h-[50vh] h-[50vh]" bgImage={imagenFondo} strength={700}>
         <div className="flex flex-col items-center text-center justify-center md:mt-40 mt-10" data-aos="zoom-in">
           <h1 className={`lg:text-7xl text-6xl font-bold p-6  bg-clip-text text-transparent ${darkMode ? 'bg-gradient-to-r from-purple-500 to-pink-300' : 'bg-gradient-to-r from-pink-500 to-violet-300'} hover:scale-105 transition duration-700`}>Argentina Hardware</h1>
           <p className="mt-2 text-xl px-10 text-white">Productos de hardware para trabajar y también divertirse.</p>
