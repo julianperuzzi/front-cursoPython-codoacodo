@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Parallax } from 'react-parallax';
 
-import imagenFondo from '../assets/imagenFondo.jpg';
+import imagenFondo from '../assets/imagenFondo2.jpg';
 import imagenFondo1 from '../assets/imagenFondo1.jpg';
 import imagenProducto1 from '../assets/producto1.jpg';
 import imagenProducto2 from '../assets/producto2.jpg';
@@ -37,11 +37,11 @@ const Home = ({ darkMode }) => {
 
       {/* Cartel de Ofertas */}
       <div className="bg-black text-white text-center py-4 ">
-        <p className="text-lg font-semibold">{offers[offerIndex]}</p>
+        <p className="text-l md:text-lg font-semibold">{offers[offerIndex]}</p>
       </div>
 
       {/* Presentacion + Imagen */}
-      <Parallax className="bg-center bg-cover md:h-[50vh] h-[50vh]" bgImage={imagenFondo} strength={500} blur={5}>
+      <Parallax className="bg-cover bg-center md:h-[50vh] h-[50vh]" bgImage={imagenFondo} strength={500}>
         <div className="flex flex-col items-center text-center justify-center md:mt-40 mt-10" data-aos="zoom-in">
           <h1 className={`lg:text-7xl text-6xl font-bold p-6  bg-clip-text text-transparent ${darkMode ? 'bg-gradient-to-r from-purple-500 to-pink-300' : 'bg-gradient-to-r from-pink-500 to-violet-300'} hover:scale-105 transition duration-700`}>Argentina Hardware</h1>
           <p className="mt-2 text-xl px-10 text-white">Productos de hardware para trabajar y también divertirse.</p>
