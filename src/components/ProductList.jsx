@@ -16,35 +16,34 @@ const ProductList = () => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    fetch('https://julianperuzzi.pythonanywhere.com/productos')
-      .then(response => response.json())
-      .then(data => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://julianperuzzi.pythonanywhere.com/productos');
+        if (!response.ok) {
+          throw new Error('Error al cargar los productos');
+        }
+        const data = await response.json();
         setProducts(data);
         setLoading(false);
-      })
-      .catch(() => {
+      } catch (error) {
+        console.error('Error al cargar los productos:', error);
         setError(true);
         setLoading(false);
-      });
+  
+        // Reintentar la carga después de 3 segundos
+        setTimeout(fetchData, 3000);
+      }
+    };
+  
+    fetchData();
   }, []);
-
-  const handleDelete = (id) => {
-    fetch(`https://julianperuzzi.pythonanywhere.com/productos/${id}`, {
-      method: 'DELETE'
-    })
-    .then(() => {
-      setProducts(products.filter(product => product.id !== id));
-    })
-    .catch(() => {
-      setError(true);
-    });
-  };
+  
 
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>Ocurrió un error... Por favor refrescar la página</p>;
 
   return (
-    <div className="container  mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4" data-aos="fade-in">
+    <div className=" mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4" data-aos="fade-in">
       {products.map(product => (
         <div key={product.id} className="bg-white p-4 rounded-lg shadow-xl hover:scale-105 transition duration-500" >
 

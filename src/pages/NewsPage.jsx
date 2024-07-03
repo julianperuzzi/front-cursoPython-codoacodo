@@ -1,0 +1,54 @@
+import React, { useState, useEffect } from 'react';
+
+const NewsPage = () => {
+  const [articles, setArticles] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchArticles = async () => {
+      try {
+        const apiKey = '843caee978774e199d03d3cd6345075f';
+        const response = await fetch(`https://newsapi.org/v2/everything?q=apple&from=2024-07-02&to=2024-07-02&sortBy=popularity&pageSize=20&apiKey=${apiKey}`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch data');
+        }
+        const data = await response.json();
+        // Filtrar los artículos que tienen imagen
+        const articlesWithImages = data.articles.filter(article => article.urlToImage);
+        // Limitar a 9 artículos
+        const limitedArticles = articlesWithImages.slice(0, 9);
+        setArticles(limitedArticles);
+        setLoading(false);
+      } catch (error) {
+        setError('Error fetching data');
+        setLoading(false);
+      }
+    };
+
+    fetchArticles();
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
+
+  return (
+    <div className="container mx-auto my-8">
+      <h1 className="text-3xl font-bold text-center mb-8">Noticias sobre Apple</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {articles.map((article, index) => (
+          <div key={index} className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition duration-300">
+            <h2 className="text-xl font-bold mb-2">{article.title}</h2>
+            {article.urlToImage && (
+              <img src={article.urlToImage} alt={article.title} className="w-full h-40 object-cover mb-2 rounded-md" />
+            )}
+            <p className="text-gray-600">{article.description}</p>
+            <a href={article.url} target="_blank" rel="noopener noreferrer" className="block mt-2 text-sm font-semibold text-blue-500 hover:text-blue-600">Leer más</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default NewsPage;
