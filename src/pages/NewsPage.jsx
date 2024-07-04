@@ -5,17 +5,18 @@ const NewsPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const apiKey = '843caee978774e199d03d3cd6345075f';
-  console.log( apiKey );
-
+  const apiKey = import.meta.env.VITE_NEWS_API_KEY;
+  console.log(apiKey);
 
   const fetchArticles = async () => {
     try {
-      const response = await fetch(`https://newsapi.org/v2/everything?q=apple&from=2024-07-03&to=2024-07-03&sortBy=popularity&apiKey=${apiKey}`);
+      const response = await fetch(`/api/v2/everything?q=apple&from=2024-07-03&to=2024-07-03&sortBy=popularity&apiKey=${apiKey}`);
+      console.log('Response:', response);
       if (!response.ok) {
         throw new Error('Failed to fetch data');
       }
       const data = await response.json();
+      console.log('Data:', data);
       // Filtrar los artículos que tienen imagen
       const articlesWithImages = data.articles.filter(article => article.urlToImage);
       // Limitar a 9 artículos
@@ -23,6 +24,7 @@ const NewsPage = () => {
       setArticles(limitedArticles);
       setLoading(false);
     } catch (error) {
+      console.error('Error:', error);
       setError('Error fetching data');
       setLoading(false);
     }
