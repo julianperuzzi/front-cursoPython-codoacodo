@@ -5,12 +5,12 @@ const NewsPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const apiKey = import.meta.env.VITE_NEWS_API_KEY;
-  console.log(apiKey);
+  //const apiKey = import.meta.env.VITE_NEWS_API_KEY;
+  //console.log(apiKey);
 
   const fetchArticles = async () => {
     try {
-      const response = await fetch(`/api/v2/everything?q=apple&from=2024-07-03&to=2024-07-03&sortBy=popularity&apiKey=${apiKey}`);
+      const response = await fetch('https://newsapi.org/v2/everything?q=apple&from=2024-07-03&to=2024-07-03&sortBy=popularity&apiKey=843caee978774e199d03d3cd6345075f');
       console.log('Response:', response);
       if (!response.ok) {
         throw new Error('Failed to fetch data');
@@ -35,7 +35,7 @@ const NewsPage = () => {
   }, []);
 
   return (
-    <div className="container mx-auto my-8">
+    <div className="container mx-auto my-8 px-4">
       <h1 className="text-3xl font-bold text-center mb-8">Noticias sobre Apple</h1>
       {loading && <p>Loading...</p>}
       {error && (
