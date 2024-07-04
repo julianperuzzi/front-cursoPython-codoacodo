@@ -10,6 +10,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import { useState } from 'react';
 import Nosotros from './pages/Nosotros';
 import NewsPage from './pages/NewsPage';
+import BlogPage from './pages/BlogPage';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -31,6 +32,7 @@ function App() {
             <Route path="/products/edit/:id" element={<ProtectedRoute element={<ProductForm isEdit />} />} />
             <Route path="/nosotros" element={<Nosotros darkMode={darkMode} />} />
             <Route path="/news" element={<NewsPage darkMode={darkMode} />} />
+            <Route path="/blog" element={<BlogPage/>} />
           </Routes>
           <Footer />
         </div>
