@@ -6,10 +6,12 @@ const NewsPage = () => {
   const [error, setError] = useState(null);
 
   const apiKey = import.meta.env.VITE_NEWS_API_KEY;
+  console.log('API Key:', import.meta.env.VITE_NEWS_API_KEY);
+
 
   const fetchArticles = async () => {
     try {
-      const response = await fetch(`https://newsapi.org/v2/everything?q=apple&from=2024-07-02&to=2024-07-02&sortBy=popularity&pageSize=20&apiKey=${apiKey}`);
+      const response = await fetch(`https://newsapi.org/v2/everything?q=apple&from=2024-07-03&to=2024-07-03&sortBy=popularity&apiKey=${apiKey}`);
       if (!response.ok) {
         throw new Error('Failed to fetch data');
       }
