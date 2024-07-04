@@ -3,24 +3,20 @@
 import React, { useState, useEffect } from 'react';
 
 const BlogPage = () => {
-  const [articles, setArticles] = useState([]);
+  const [apodData, setApodData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const apiKey = '843caee978774e199d03d3cd6345075f';
+  const apiKey = 'xptaXYFki53aBag76QaOPbDbJbjCaKRCQ5hfg4Aq';
 
-  const fetchArticles = async () => {
+  const fetchApodData = async () => {
     try {
-      const response = await fetch(`https://newsapi.org/v2/top-headlines?q=microsoft&apiKey=${apiKey}`);
+      const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`);
       if (!response.ok) {
         throw new Error('Failed to fetch data');
       }
       const data = await response.json();
-      // Filtrar los artículos que tienen imagen
-      const articlesWithImages = data.articles.filter(article => article.urlToImage);
-      // Limitar a 9 artículos
-      const limitedArticles = articlesWithImages.slice(0, 9);
-      setArticles(limitedArticles);
+      setApodData(data);
       setLoading(false);
     } catch (error) {
       setError('Error fetching data');
@@ -29,33 +25,38 @@ const BlogPage = () => {
   };
 
   useEffect(() => {
-    fetchArticles();
+    fetchApodData();
   }, []);
 
   return (
     <div className="container mx-auto my-8">
-      <h1 className="text-3xl font-bold text-center mb-8">Noticias Tecnológicas de Microsoft</h1>
+      <h1 className="text-3xl font-bold text-center mb-8">Imagen Astronómica del Día (NASA APOD)</h1>
       {loading && <p>Loading...</p>}
       {error && (
         <div>
           <p>{error}</p>
-          <button onClick={fetchArticles} className="bg-blue-500 text-white px-3 py-1 rounded-md mt-4 hover:bg-blue-600">
+          <button onClick={fetchApodData} className="bg-blue-500 text-white px-3 py-1 rounded-md mt-4 hover:bg-blue-600">
             Intentar Nuevamente
           </button>
         </div>
       )}
-      {!loading && !error && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {articles.map((article, index) => (
-            <div key={index} className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition duration-300">
-              <h2 className="text-xl font-bold mb-2">{article.title}</h2>
-              {article.urlToImage && (
-                <img src={article.urlToImage} alt={article.title} className="w-full h-40 object-cover mb-2 rounded-md" />
-              )}
-              <p className="text-gray-600">{article.description}</p>
-              <a href={article.url} target="_blank" rel="noopener noreferrer" className="block mt-2 text-sm font-semibold text-blue-500 hover:text-blue-600">Leer más</a>
-            </div>
-          ))}
+      {!loading && !error && apodData && (
+        <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md">
+          <h2 className="text-xl font-bold mb-4">{apodData.title}</h2>
+          {apodData.media_type === 'image' ? (
+            <img src={apodData.url} alt={apodData.title} className="w-full rounded-md mb-4" />
+          ) : (
+            <iframe
+              src={apodData.url}
+              title={apodData.title}
+              className="w-full rounded-md mb-4"
+              frameBorder="0"
+              gesture="media"
+              allow="encrypted-media"
+              allowFullScreen
+            ></iframe>
+          )}
+          <p className="text-gray-600">{apodData.explanation}</p>
         </div>
       )}
     </div>
