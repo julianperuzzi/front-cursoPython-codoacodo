@@ -6,11 +6,12 @@ const NewsPage = () => {
   const [error, setError] = useState(null);
 
   //const apiKey = 843caee978774e199d03d3cd6345075f;
-  //console.log(apiKey);
+  
 
   const fetchArticles = async () => {
     try {
       const response = await fetch('https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=843caee978774e199d03d3cd6345075f');
+      console.log(apiKey);
       console.log('Response:', response);
       if (!response.ok) {
         throw new Error('Failed to fetch data');
