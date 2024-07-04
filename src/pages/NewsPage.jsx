@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
 const NewsPage = () => {
-  const [articles, setArticles] = useState([]);
+  const [articles, setArticles] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  //const apiKey = 843caee978774e199d03d3cd6345075f;
   
+  const apiKey = '843caee978774e199d03d3cd6345075f';
 
   const fetchArticles = async () => {
     try {
-      const response = await fetch('https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=843caee978774e199d03d3cd6345075f');
+      const response = await fetch(`https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${apiKey}`);
       console.log(apiKey);
       console.log('Response:', response);
       if (!response.ok) {

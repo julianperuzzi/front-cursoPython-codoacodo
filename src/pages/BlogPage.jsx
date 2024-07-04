@@ -1,5 +1,3 @@
-// src/BlogPage.js
-
 import React, { useState, useEffect } from 'react';
 
 const BlogPage = () => {
