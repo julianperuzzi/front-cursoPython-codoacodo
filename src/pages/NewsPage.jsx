@@ -6,7 +6,7 @@ const NewsPage = () => {
   const [error, setError] = useState(null);
 
   const apiKey = '843caee978774e199d03d3cd6345075f';
-  console.log('API Key:', import.meta.env.VITE_NEWS_API_KEY);
+  console.log( apiKey );
 
 
   const fetchArticles = async () => {
