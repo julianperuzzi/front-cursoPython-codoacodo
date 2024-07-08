@@ -10,6 +10,10 @@ function Navbar({ darkMode, toggleDarkMode }) {
     setIsOpen(!isOpen);
   };
 
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
   return (
     <nav className={`w-full sticky top-0 z-30 shadow-lg ${darkMode ? 'bg-gray-800' : 'bg-slate-700'}`}>
       <div className="container mx-auto px-4 py-2 flex items-center justify-between">
@@ -40,7 +44,7 @@ function Navbar({ darkMode, toggleDarkMode }) {
             Noticias
           </Link>
         </div>
-        <div className={`md:flex items-center space-x-4 ${isOpen ? 'block' : 'hidden'}`}>
+        <div className="hidden md:flex items-center space-x-4">
           {isAuthenticated ? (
             <>
               <span className={`px-3 py-2 ${darkMode ? 'text-orange-300' : 'text-orange-300'}`}>{user}</span>
@@ -65,15 +69,33 @@ function Navbar({ darkMode, toggleDarkMode }) {
         </div>
       </div>
       {isOpen && (
-        <div className="md:hidden bg-white shadow-lg">
-          <Link to="/" className={`block px-4 py-2 ${darkMode ? 'text-gray-300' : 'text-gray-800'} hover:bg-gray-200`}>Inicio</Link>
-          <Link to="/products" className={`block px-4 py-2 ${darkMode ? 'text-gray-300' : 'text-gray-800'} hover:bg-gray-200`}>Productos</Link>
-          <Link to="/products/new" className={`block px-4 py-2 ${darkMode ? 'text-gray-300' : 'text-gray-800'} hover:bg-gray-200`}>Añadir Producto</Link>
-          {isAuthenticated ? (
-            <button onClick={logout} className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200">Logout</button>
-          ) : (
-            <Link to="/login" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Login</Link>
-          )}
+        <div className="md:hidden fixed inset-0 bg-gray-900 bg-opacity-75 z-40 flex justify-end">
+          <div className="w-2/3 bg-white shadow-lg flex flex-col p-4">
+            <button onClick={toggleMenu} className="self-end mb-4">
+              <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+            <Link to="/" onClick={closeMenu} className={`block px-4 py-2 ${darkMode ? 'text-gray-300' : 'text-gray-800'} hover:bg-gray-200`}>Inicio</Link>
+            <Link to="/clientproducts" onClick={closeMenu} className={`block px-4 py-2 ${darkMode ? 'text-gray-300' : 'text-gray-800'} hover:bg-gray-200`}>Productos</Link>
+            <Link to="/adminproducts" onClick={closeMenu} className={`block px-4 py-2 ${darkMode ? 'text-gray-300' : 'text-gray-800'} hover:bg-gray-200`}>Gestor Productos</Link>
+            <Link to="/nosotros" onClick={closeMenu} className={`block px-4 py-2 ${darkMode ? 'text-gray-300' : 'text-gray-800'} hover:bg-gray-200`}>Nosotros</Link>
+            <Link to="/news" onClick={closeMenu} className={`block px-4 py-2 ${darkMode ? 'text-gray-300' : 'text-gray-800'} hover:bg-gray-200`}>Noticias</Link>
+            {isAuthenticated ? (
+              <button onClick={logout} className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200">Logout</button>
+            ) : (
+              <Link to="/login" onClick={closeMenu} className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Login</Link>
+            )}
+            <button
+              onClick={() => {
+                toggleDarkMode();
+                closeMenu();
+              }}
+              className={`mt-4 hover:text-white px-3 py-2 rounded-md text-sm font-medium ${darkMode ? 'bg-gray-700 text-white' : 'bg-gray-600 text-gray-300'}`}
+            >
+              {darkMode ? 'Light Mode' : 'Dark Mode'}
+            </button>
+          </div>
         </div>
       )}
     </nav>
