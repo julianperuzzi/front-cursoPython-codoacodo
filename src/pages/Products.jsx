@@ -32,7 +32,7 @@ const Products = ({ darkMode }) => {
       <h2 className="text-3xl font-bold text-center">Administrador de Productos</h2>
       <div className="mx-auto my-8">
         <Link
-          to="/products/new"
+          to="/adminproducts/new"
           className={`my-8 text-center px-6 py-3 text-xl font-semibold shadow-md ${darkMode ? 'bg-green-600 text-white hover:bg-green-700 hover:text-gray-100' : 'bg-green-200 text-green-600 hover:text-green-900 hover:bg-green-300'}`}>
           Añadir Producto
         </Link>

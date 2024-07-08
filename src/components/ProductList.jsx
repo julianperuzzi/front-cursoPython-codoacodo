@@ -62,7 +62,7 @@ const ProductList = () => {
           <p className="text-gray-600">${product.precio}</p>
           <p className="text-gray-600">Stock: {product.stock}</p>
           <div className="mt-4">
-            <Link to={`/products/edit/${product.id}`} className="bg-cyan-500 text-white px-3 py-1 rounded-md mr-2 hover:bg-black">Editar</Link>
+            <Link to={`/adminproducts/edit/${product.id}`} className="bg-cyan-500 text-white px-3 py-1 rounded-md mr-2 hover:bg-black">Editar</Link>
             <button onClick={() => handleDelete(product.id)} className="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-black">Eliminar</button>
           </div>
         </div>
