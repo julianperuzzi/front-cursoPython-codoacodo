@@ -7,8 +7,7 @@ const ProtectedRoute = ({ element }) => {
   const { isAuthenticated } = useContext(AuthContext);
 
   if (!isAuthenticated) {
-    alert("¡Debes iniciar sesión para acceder a esta página!");
-    return <Navigate to="/" />;
+    return <Navigate to="/login" />;
   }
 
   return element;

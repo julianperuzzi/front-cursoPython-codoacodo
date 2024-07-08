@@ -7,7 +7,7 @@ import imagenJulian from '../assets/julian_peruzzi.png';
 import imagenMirta from '../assets/mirta_mamani.jpeg';
 //import imagenNora from '../assets/nora_tresmas.jpg';
 
-import imagenFondo from '../assets/slick-blur-violet-5k-4f.jpg';
+import imagenFondo from '../assets/imagenFondo.jpg';
 
 const Nosotros = () => {
   // Datos de cada integrante
@@ -37,21 +37,23 @@ const Nosotros = () => {
 
   return (
     <div className="">
-      <Parallax bgImage={imagenFondo} bgImageAlt="fondo" strength={700}>
-    <div className="container md:w-8/12 mx-auto my-16 text-white px-4">
-      
+      <Parallax bgImage={imagenFondo}  bgImageAlt="fondo" strength={700}>
+    <div className="container md:w-8/12 mx-auto my-16 text-white px-4 ">
+    <h2 className={`lg:text-7xl text-6xl font-bold p-6 bg-clip-text text-transparent text-center bg-gradient-to-r from-purple-400 to-pink-500 hover:scale-105 transition duration-700`}>
+          Argentina Hardware
+        </h2>
       <h2 className="text-4xl font-bold text-center mb-8">Nosotros</h2>
       <p className="text-lg text-center mb-8">Somos Argentina Hardware y ofrecemos soluciones tecnológicas innovadoras para satisfacer las necesidades de nuestros clientes.</p>
 
 
       
       {integrantes.map((persona, index) => (
-        <div key={index} className={`bg-white shadow-lg overflow-hidden flex md:flex-row flex-col-reverse hover:scale-105 transition duration-500 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} mt-8`}>
+        <div key={index} className={`bg-gradient-to-r from-gray-700 to-gray-900 shadow-lg overflow-hidden flex md:flex-row flex-col-reverse hover:scale-105 transition duration-500 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} mt-8`}>
           {/* Imagen de la persona */}
           <img src={persona.imagen} alt={persona.nombre} className="w-full h-72 object-cover md:w-1/3" />
 
           {/* Información de la persona */}
-          <div className="p-8 content-center  text-gray-700">
+          <div className="p-8 content-center  text-gray-200">
             <h3 className="text-xl font-bold mb-2">{persona.nombre}</h3>
             <p><strong>DNI:</strong> {persona.dni}</p>
             <p><strong>Profesión:</strong> {persona.profesion}</p>

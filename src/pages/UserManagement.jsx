@@ -141,14 +141,16 @@ const UserManagement = ({ darkMode }) => {
   return (
     <div className={`mx-auto p-6 ${darkMode ? 'bg-slate-900/80' : 'bg-indigo-100'}`}>
       <h2 className={`text-4xl font-bold mb-3 text-center ${darkMode ? 'text-white' : 'text-gray-800'}`}>Gestión de Usuarios</h2>
-      <div className="grid grid-cols-1 gap-4">
+      <div className="grid grid-cols-2 gap-4">
         {users.map(user => (
           <div key={user.id} className="bg-white p-4 rounded-lg shadow-lg" data-aos="fade-up">
-            <img src={user.foto_perfil} alt={user.nombre} className="w-16 h-16 object-cover rounded-full mb-2" />
+            <img src={user.foto_perfil} alt={user.nombre} className="w-20 h-20 object-cover rounded-full mb-2" />
+            <div>
             <h2 className="text-lg font-semibold">{user.nombre}</h2>
             <p className="text-gray-600">Ciudad: {user.ciudad}</p>
             <button onClick={() => handleEditClick(user)} className="bg-yellow-500 text-white px-3 py-1 rounded-md hover:bg-yellow-600">Editar</button>
             <button onClick={() => deleteUser(user.id)} className="bg-red-500 text-white px-3 py-1 rounded-md m-2 hover:bg-red-600">Eliminar</button>
+            </div>
           </div>
         ))}
       </div>
@@ -170,7 +172,7 @@ const UserManagement = ({ darkMode }) => {
           <div className="mb-4">
             <label className="block text-gray-700 font-bold mb-2" htmlFor="contrasena">Contraseña</label>
             <input
-              type="password"
+              type="text"
               name="contrasena"
               placeholder="Contraseña"
               className="block w-full p-3 border rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300"
