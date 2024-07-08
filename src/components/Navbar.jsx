@@ -1,3 +1,4 @@
+// src/components/Navbar.js
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
@@ -37,6 +38,9 @@ function Navbar({ darkMode, toggleDarkMode }) {
           <Link to="/adminproducts" className={`mx-2 px-4 py-2 rounded-md transition-colors duration-300 ${darkMode ? 'text-gray-300 hover:bg-gray-700' : 'text-gray-200 hover:bg-purple-800'}`}>
             Gestor Productos
           </Link>
+          <Link to="/usuarios" className={`mx-2 px-4 py-2 rounded-md transition-colors duration-300 ${darkMode ? 'text-gray-300 hover:bg-gray-700' : 'text-gray-200 hover:bg-purple-800'}`}>
+            Gestor Usuarios
+          </Link>
           <Link to="/nosotros" className={`mx-2 px-4 py-2 rounded-md transition-colors duration-300 ${darkMode ? 'text-gray-300 hover:bg-gray-700' : 'text-gray-200 hover:bg-purple-800'}`}>
             Nosotros
           </Link>
@@ -47,7 +51,9 @@ function Navbar({ darkMode, toggleDarkMode }) {
         <div className="hidden md:flex items-center space-x-4">
           {isAuthenticated ? (
             <>
-              <span className={`px-3 py-2 ${darkMode ? 'text-orange-300' : 'text-orange-300'}`}>{user}</span>
+
+              <Link to="/myaccount" className={`px-3 py-2 rounded-md text-sm font-medium ${darkMode ? 'bg-cyan-600 text-white' : 'bg-cyan-200 text-cyan-800'}`}>{user.nombre}</Link>
+              
               <button
                 onClick={logout}
                 className="bg-red-500 hover:bg-red-700 text-white px-3 py-2 rounded-md text-sm font-medium"
@@ -79,10 +85,11 @@ function Navbar({ darkMode, toggleDarkMode }) {
             <Link to="/" onClick={closeMenu} className={`block px-4 py-2 ${darkMode ? 'text-gray-300' : 'text-gray-800'} hover:bg-gray-200`}>Inicio</Link>
             <Link to="/clientproducts" onClick={closeMenu} className={`block px-4 py-2 ${darkMode ? 'text-gray-300' : 'text-gray-800'} hover:bg-gray-200`}>Productos</Link>
             <Link to="/adminproducts" onClick={closeMenu} className={`block px-4 py-2 ${darkMode ? 'text-gray-300' : 'text-gray-800'} hover:bg-gray-200`}>Gestor Productos</Link>
+            <Link to="/usuarios" onClick={closeMenu} className={`block px-4 py-2 ${darkMode ? 'text-gray-300' : 'text-gray-800'} hover:bg-gray-200`}>Gestor Usuarios</Link>
             <Link to="/nosotros" onClick={closeMenu} className={`block px-4 py-2 ${darkMode ? 'text-gray-300' : 'text-gray-800'} hover:bg-gray-200`}>Nosotros</Link>
             <Link to="/news" onClick={closeMenu} className={`block px-4 py-2 ${darkMode ? 'text-gray-300' : 'text-gray-800'} hover:bg-gray-200`}>Noticias</Link>
             {isAuthenticated ? (
-              <button onClick={logout} className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200">Logout</button>
+              <button onClick={() => { logout(); closeMenu(); }} className="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-200">Logout</button>
             ) : (
               <Link to="/login" onClick={closeMenu} className={`block px-4 py-2 ${darkMode ? 'text-gray-300' : 'text-gray-800'} hover:bg-gray-200`}>Login</Link>
             )}

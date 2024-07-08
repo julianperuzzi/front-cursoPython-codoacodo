@@ -5,7 +5,13 @@ import { AuthContext } from '../context/AuthContext';
 
 const ProtectedRoute = ({ element }) => {
   const { isAuthenticated } = useContext(AuthContext);
-  return isAuthenticated ? element : <Navigate to="/login" />;
+
+  if (!isAuthenticated) {
+    alert("¡Debes iniciar sesión para acceder a esta página!");
+    return <Navigate to="/" />;
+  }
+
+  return element;
 };
 
 export default ProtectedRoute;

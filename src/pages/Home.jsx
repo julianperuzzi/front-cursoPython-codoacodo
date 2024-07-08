@@ -119,7 +119,7 @@ const Home = ({ darkMode }) => {
         <div className="container my-24 w-10/12 mx-auto">
           <h3 className={`text-3xl font-bold mb-6 ${darkMode ? 'text-white' : 'text-gray-800'}`}>Administrador de Productos</h3>
           <p className={`text-gray-600 mb-6 ${darkMode ? 'text-white' : 'text-gray-800'}`}>Ingresa al menú de Administración de Productos: Agrega, Edita o Elimina Productos</p>
-          <Link to="/adminproducts" className={`text-center bg-slate-200 px-6 py-2 md:text-xl text-sm text-violet-700 hover:text-violet-900 font-semibold shadow-md ${darkMode ? 'hover:bg-gray-300' : 'hover:bg-gray-200'}`}>
+          <Link to="/adminproducts" className={`text-center bg-slate-600 px-6 py-2 md:text-xl text-sm text-gray-100  font-semibold shadow-md hover:bg-violet-700 `}>
             Ir al Administrador de Productos
           </Link>
         </div>

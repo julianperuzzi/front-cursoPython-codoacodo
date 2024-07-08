@@ -1,37 +1,41 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
-
-import fondoLogin from '../assets/fondoLogin.jpg';
+import fondoLogin from '../assets/slick-blur-violet-5k-4f.jpg';
 
 function Login({ darkMode }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const { login, isAuthenticated, user, logout } = useContext(AuthContext);
+  const { login, logout, isAuthenticated } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  // Al cargar el componente, intentamos recuperar la sesión del usuario desde el almacenamiento local
-  useEffect(() => {
-    const storedUser = localStorage.getItem('authUser');
-    if (storedUser) {
-      login(JSON.parse(storedUser)); // Convertimos el JSON almacenado de vuelta a objeto
-    }
-  }, [login]);
-
-  const handleSubmit = (e) => {
+  
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (login(username, password)) {
-      // Si el login es exitoso, guardamos la información en localStorage
-      localStorage.setItem('authUser', JSON.stringify({ username, password }));
-      navigate('/adminproducts');
-    } else {
-      alert('Login failed');
+    try {
+      const response = await fetch('https://julianperuzzi.pythonanywhere.com/usuarios');
+      if (!response.ok) {
+        throw new Error('Error fetching users');
+      }
+      const data = await response.json();
+      const authenticatedUser = data.find(user => user.nombre === username && user.contrasena === password);
+      
+      if (!authenticatedUser) {
+        throw new Error('Invalid credentials');
+      }
+      login(authenticatedUser);
+      localStorage.setItem('authUser', JSON.stringify(authenticatedUser));
+
+      navigate('/myaccount');
+    } catch (error) {
+      console.error('Error logging in:', error);
+      alert('Login failed: ' + error.message);
     }
   };
 
   const handleLogout = () => {
     logout();
-    localStorage.removeItem('authUser'); // Removemos el usuario al hacer logout
+    localStorage.removeItem('authUser');
   };
 
   return (

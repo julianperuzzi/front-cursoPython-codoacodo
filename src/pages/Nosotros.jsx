@@ -4,7 +4,7 @@ import { Parallax } from 'react-parallax';
 
 // Importar las imágenes de cada persona
 import imagenJulian from '../assets/julian_peruzzi.png';   
-//import imagenMirta from '../assets/mirta_britez.jpg';
+import imagenMirta from '../assets/mirta_mamani.jpeg';
 //import imagenNora from '../assets/nora_tresmas.jpg';
 
 import imagenFondo from '../assets/slick-blur-violet-5k-4f.jpg';
@@ -14,21 +14,21 @@ const Nosotros = () => {
   const integrantes = [
     { 
       nombre: 'Julian Peruzzi', 
-      dni: '12345678', 
+      dni: '39955389', 
       profesion: 'Desarrollador Web', 
       imagen: imagenJulian, 
       descripcion: 'Con más de 5 años de experiencia en desarrollo web, Julian se especializa en frontend y backend, creando aplicaciones web robustas y escalables.'
     },
     { 
-      nombre: 'Mirta Britez', 
-      dni: '87654321', 
+      nombre: 'Mirta Graciela Mamaní', 
+      dni: '24483612', 
       profesion: 'Diseñadora UX/UI', 
-      imagen: imagenJulian, 
+      imagen: imagenMirta, 
       descripcion: 'Mirta es una diseñadora apasionada por crear experiencias de usuario intuitivas y atractivas. Ha trabajado en múltiples proyectos de diseño de interfaces.'
     },
     { 
-      nombre: 'Nora Tresmas', 
-      dni: '56789123', 
+      nombre: 'Nora Alejandra Rivero', 
+      dni: '32802839', 
       profesion: 'Ingeniera de Software', 
       imagen: imagenJulian, 
       descripcion: 'Nora tiene una vasta experiencia en ingeniería de software y ha liderado equipos de desarrollo en grandes proyectos de tecnología.'

@@ -1,3 +1,4 @@
+// src/App.js
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Products from './pages/Products';
@@ -12,6 +13,11 @@ import Nosotros from './pages/Nosotros';
 import NewsPage from './pages/NewsPage';
 import BlogPage from './pages/BlogPage';
 import ReadOnlyProductList from './pages/ReadOnlyProductList';
+import UserManagement from './pages/UserManagement';
+import MyAccount from './pages/MyAccount';
+
+
+
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -19,15 +25,20 @@ function App() {
   const toggleDarkMode = () => {
     setDarkMode((prevMode) => !prevMode);
   };
+  
+
+
 
   return (
     <AuthProvider>
       <Router>
         <div className={`App bg-slate-100 ${darkMode ? 'dark' : ''}`}>
-          <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+           <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} /> 
           <Routes>
-            <Route path="/" element={<Home  darkMode={darkMode} />} />
+            <Route path="/" element={<Home darkMode={darkMode} />} />
             <Route path="/login" element={<Login darkMode={darkMode} />} />
+            <Route path="/myaccount" element={<ProtectedRoute element={<MyAccount darkMode={darkMode} />} />} />
+            <Route path="/usuarios" element={<ProtectedRoute element={<UserManagement darkMode={darkMode} />} />} />
             <Route path="/clientproducts" element={<ReadOnlyProductList darkMode={darkMode}/>}  />
             <Route path="/adminproducts" element={<ProtectedRoute element={<Products darkMode={darkMode}/>} />} />
             <Route path="/adminproducts/new" element={<ProtectedRoute element={<ProductForm />} />} />
@@ -36,6 +47,7 @@ function App() {
             <Route path="/news" element={<NewsPage darkMode={darkMode} />} />
             <Route path="/blog" element={<BlogPage/>} />
           </Routes>
+
           <Footer />
         </div>
       </Router>
