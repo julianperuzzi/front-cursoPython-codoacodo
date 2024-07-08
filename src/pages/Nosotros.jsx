@@ -36,7 +36,7 @@ const Nosotros = () => {
   ];
 
   return (
-    <div>
+    <div className="px-4">
       <Parallax bgImage={imagenFondo} bgImageAlt="fondo" strength={700}>
     <div className="container md:w-8/12 mx-auto my-16 text-white">
       
