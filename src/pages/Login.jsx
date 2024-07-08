@@ -23,7 +23,7 @@ function Login({ darkMode }) {
     if (login(username, password)) {
       // Si el login es exitoso, guardamos la información en localStorage
       localStorage.setItem('authUser', JSON.stringify({ username, password }));
-      navigate('/products');
+      navigate('/adminproducts');
     } else {
       alert('Login failed');
     }

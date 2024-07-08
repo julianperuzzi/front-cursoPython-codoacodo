@@ -27,9 +27,9 @@ const Products = ({ darkMode }) => {
   if (error) return <p>Ocurrió un error...</p>;
 
   return (
-    <div className={` mx-auto pb-40 pt-8 px-4 ${darkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-800'}`}>
+    <div className={` mx-auto pb-40 pt-8 px-4 ${darkMode ? 'bg-neutral-800 text-white' : 'bg-orange-100 text-gray-800'}`}>
       <div className='container mx-auto'>
-      <h2 className="text-3xl font-bold text-center">Productos</h2>
+      <h2 className="text-3xl font-bold text-center">Administrador de Productos</h2>
       <div className="mx-auto my-8">
         <Link
           to="/products/new"

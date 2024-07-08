@@ -11,6 +11,7 @@ import { useState } from 'react';
 import Nosotros from './pages/Nosotros';
 import NewsPage from './pages/NewsPage';
 import BlogPage from './pages/BlogPage';
+import ReadOnlyProductList from './pages/ReadOnlyProductList';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -27,9 +28,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Home  darkMode={darkMode} />} />
             <Route path="/login" element={<Login darkMode={darkMode} />} />
-            <Route path="/products" element={<ProtectedRoute element={<Products darkMode={darkMode}/>} />} />
-            <Route path="/products/new" element={<ProtectedRoute element={<ProductForm />} />} />
-            <Route path="/products/edit/:id" element={<ProtectedRoute element={<ProductForm isEdit />} />} />
+            <Route path="/clientproducts" element={<ReadOnlyProductList darkMode={darkMode}/>}  />
+            <Route path="/adminproducts" element={<ProtectedRoute element={<Products darkMode={darkMode}/>} />} />
+            <Route path="/adminproducts/new" element={<ProtectedRoute element={<ProductForm />} />} />
+            <Route path="/adminproducts/edit/:id" element={<ProtectedRoute element={<ProductForm isEdit />} />} />
             <Route path="/nosotros" element={<Nosotros darkMode={darkMode} />} />
             <Route path="/news" element={<NewsPage darkMode={darkMode} />} />
             <Route path="/blog" element={<BlogPage/>} />
