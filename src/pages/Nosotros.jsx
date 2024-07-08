@@ -51,7 +51,7 @@ const Nosotros = () => {
           <img src={persona.imagen} alt={persona.nombre} className="w-full h-72 object-cover md:w-1/3" />
 
           {/* Información de la persona */}
-          <div className="px-8 content-center  text-gray-700">
+          <div className="p-8 content-center  text-gray-700">
             <h3 className="text-xl font-bold mb-2">{persona.nombre}</h3>
             <p><strong>DNI:</strong> {persona.dni}</p>
             <p><strong>Profesión:</strong> {persona.profesion}</p>
