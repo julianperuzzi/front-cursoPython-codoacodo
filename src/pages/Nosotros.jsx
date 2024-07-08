@@ -36,9 +36,9 @@ const Nosotros = () => {
   ];
 
   return (
-    <div className="px-4">
+    <div className="">
       <Parallax bgImage={imagenFondo} bgImageAlt="fondo" strength={700}>
-    <div className="container md:w-8/12 mx-auto my-16 text-white">
+    <div className="container md:w-8/12 mx-auto my-16 text-white px-4">
       
       <h2 className="text-4xl font-bold text-center mb-8">Nosotros</h2>
       <p className="text-lg text-center mb-8">Somos Argentina Hardware y ofrecemos soluciones tecnológicas innovadoras para satisfacer las necesidades de nuestros clientes.</p>
