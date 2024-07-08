@@ -72,7 +72,7 @@ const Home = ({ darkMode }) => {
               </p>
               <p className="mt-4  italic text-left mx-auto">"La tecnología es solo una herramienta. En términos de motivación e impacto en la humanidad, es lo que lleva a las personas a lograr cosas maravillosas."</p>
               <p className="mt-4 text-sm text-left mx-auto">- Sony Moore, Fundador Argentina Hardware</p>
-              <Link to="/nosotros" className="block mt-3 text-sm font-semibold text-blue-500 hover:text-blue-600">Nuestro equipo</Link>
+              <Link to="/nosotros" className="block my-3 text-sm font-semibold text-blue-500 hover:text-blue-600">Nuestro equipo</Link>
             </div>
           </div>
         </div>
