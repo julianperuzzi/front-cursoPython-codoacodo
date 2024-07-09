@@ -5,7 +5,7 @@ import { Parallax } from 'react-parallax';
 // Importar las imágenes de cada persona
 import imagenJulian from '../assets/julian_peruzzi.png';   
 import imagenMirta from '../assets/mirta_mamani.jpeg';
-//import imagenNora from '../assets/nora_tresmas.jpg';
+import imagenNora from '../assets/FotoNora.png';
 
 import imagenFondo from '../assets/imagenFondo.jpg';
 
@@ -30,7 +30,7 @@ const Nosotros = () => {
       nombre: 'Nora Alejandra Rivero', 
       dni: '32802839', 
       profesion: 'Ingeniera de Software', 
-      imagen: imagenJulian, 
+      imagen: imagenNora, 
       descripcion: 'Nora tiene una vasta experiencia en ingeniería de software y ha liderado equipos de desarrollo en grandes proyectos de tecnología.'
     }
   ];
