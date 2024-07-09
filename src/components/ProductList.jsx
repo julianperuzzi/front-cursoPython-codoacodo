@@ -47,14 +47,14 @@ const ProductList = () => {
 
   if (loading) return <p>Cargando...</p>;
   if (error) return (
-    <div>
+    <div className='container'>
       <p>Ocurrió un error... Por favor refresca la página.</p>
       <button onClick={handleRefresh} className="bg-blue-500 text-white px-3 py-1 rounded-md mt-4 hover:bg-blue-600">Refrescar</button>
     </div>
   );
 
   return (
-    <div className="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4" data-aos="fade-in">
+    <div className="mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4" data-aos="fade-in"> 
       {products.map(product => (
         <div key={product.id} className="bg-white p-4 rounded-lg shadow-xl hover:scale-105 transition duration-500">
           <img src={product.imagen} alt={product.nombre} className="w-full h-40 object-cover mb-2 rounded-md" />
@@ -66,7 +66,7 @@ const ProductList = () => {
             <button onClick={() => handleDelete(product.id)} className="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-black">Eliminar</button>
           </div>
         </div>
-      ))}
+      ))}    
     </div>
   );
 };
