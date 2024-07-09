@@ -132,7 +132,7 @@ const UserManagement = ({ darkMode }) => {
 
   if (loading) return <p>Cargando...</p>;
   if (error) return (
-    <div>
+    <div className='container'>
       <p>Ocurrió un error... Por favor refresca la página.</p>
       <button onClick={handleRefresh} className="bg-blue-500 text-white px-3 py-1 rounded-md mt-4 hover:bg-blue-600">Refrescar</button>
     </div>
