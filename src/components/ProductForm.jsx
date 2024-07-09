@@ -45,7 +45,7 @@ const ProductForm = ({ isEdit }) => {
       body: JSON.stringify(product)
     })
     .then(() => {
-      navigate('/products');
+      navigate('/adminproducts');
     })
     .catch(() => {
       setError(true);
