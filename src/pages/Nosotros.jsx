@@ -61,7 +61,17 @@ const Nosotros = () => {
           </div>
         </div>
       ))}
+      <h2 className="text-4xl font-bold text-center my-8">¿Cómo se desarrolló esta pagina?</h2>
+      <p className="text-lg text-center mb-8">Para el desarrollo de esta web se usaron las siguientes herramientas:
+En la parte del front se trabajó con React y Vite, este último es un paquete JS que toma el código React JSX y lo transforma en archivos HTML, CSS y JS sin formato que pueden ejecutar la mayoría de los navegadores.
+Los Frameworks de diseño fueron:
+-Tailwind CSS que es un framework de CSS de código abierto​ para el diseño de páginas web. Se diferencia de otras bibliotecas, como Bootstrap por ejemplo, en que no genera una serie de clases predefinidas para elementos como botones o tablas.
+-React route: este nos permitió agregar dinamismo para lograr una SPA que permite que el contenido se muestre más rápido sin que la página sea actualizada.
+-Parallax que provoca la sensación de que las imágenes lejanas se mueven más lentamente que los objetos cercanos.
+-AOS (Animate On Scroll) que es una librería que proporciona una serie de animaciones a los bloques de nuestro html cuando nos situamos en la posición del elemento haciendo scroll.
+En el desarrollo del Backend y de la base de datos se utilizaron el lenguaje de Python y MySQL, respectivamente.</p>
     </div>
+      
     </Parallax>
     </div>
   );
